@@ -1,11 +1,16 @@
-import ActivityKit
 import CoreData
 import Foundation
 import SwiftUI
+
+#if canImport(ActivityKit)
+import ActivityKit
+#endif
+
 import Swinject
 
 @main struct FreeAPSApp: App {
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.openURL) var openURL
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
@@ -47,6 +52,7 @@ import Swinject
         _ = resolver.resolve(HealthKitManager.self)!
         _ = resolver.resolve(BluetoothStateManager.self)!
         _ = resolver.resolve(LiveActivityBridge.self)!
+        _ = resolver.resolve(ShortcutsManager.self)!
     }
 
     init() {

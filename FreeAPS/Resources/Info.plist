@@ -37,6 +37,7 @@
 			<array>
 				<string>$(APP_URL_SCHEME)</string>
 				<string>freeaps-x</string>
+				<string>iaps</string>
 			</array>
 		</dict>
 	</array>

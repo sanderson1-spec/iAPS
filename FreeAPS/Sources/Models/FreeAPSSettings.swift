@@ -78,6 +78,11 @@ struct FreeAPSSettings: JSON, Equatable {
     var sensorDays: Double = 10
     var anubis: Bool = false
     var fpus: Bool = true
+    // SMS Remote Bolus settings
+    var smsRemoteEnabled: Bool = false
+    var smsRemoteAllowedNumbers: String = ""
+    var smsRemotePIN: String = ""
+    var smsRemoteMaxBolus: Decimal = 0.0
     // Auto ISF
     var autoisf: Bool = false
     var smbDeliveryRatioBGrange: Decimal = 0
@@ -544,6 +549,23 @@ extension FreeAPSSettings: Decodable {
 
         if let ketoProtectAbsolut = try? container.decode(Bool.self, forKey: .ketoProtectAbsolut) {
             settings.ketoProtectAbsolut = ketoProtectAbsolut
+        }
+
+        // SMS Remote Bolus settings
+        if let smsRemoteEnabled = try? container.decode(Bool.self, forKey: .smsRemoteEnabled) {
+            settings.smsRemoteEnabled = smsRemoteEnabled
+        }
+
+        if let smsRemoteAllowedNumbers = try? container.decode(String.self, forKey: .smsRemoteAllowedNumbers) {
+            settings.smsRemoteAllowedNumbers = smsRemoteAllowedNumbers
+        }
+
+        if let smsRemotePIN = try? container.decode(String.self, forKey: .smsRemotePIN) {
+            settings.smsRemotePIN = smsRemotePIN
+        }
+
+        if let smsRemoteMaxBolus = try? container.decode(Decimal.self, forKey: .smsRemoteMaxBolus) {
+            settings.smsRemoteMaxBolus = smsRemoteMaxBolus
         }
 
         self = settings

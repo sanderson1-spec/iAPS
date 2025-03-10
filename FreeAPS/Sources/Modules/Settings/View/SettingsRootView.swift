@@ -90,6 +90,7 @@ extension Settings {
                     Text("Contact Image").navigationLink(to: .contactTrick, from: self)
                     Text("Dynamic ISF").navigationLink(to: .dynamicISF, from: self)
                     Text("Auto ISF").navigationLink(to: .autoISF, from: self)
+                    Text("SMS Remote Bolus").navigationLink(to: .smsRemoteBolusConfig, from: self)
                 } header: { Text("Extra Features") }
 
                 Section {
